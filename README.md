@@ -1,69 +1,82 @@
-# React + TypeScript + Vite
+# FleetLink Frontend 🚚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend for the **FleetLink** logistics vehicle booking system.  
+Built with **React**, **TypeScript**, **Vite**, and **TailwindCSS**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Tech Stack
 
-## Expanding the ESLint configuration
+- [Vite](https://vitejs.dev/) – Fast dev server & build tool
+- [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/) – Utility-first CSS
+- [Axios](https://axios-http.com/) – For API calls
+- [React DatePicker](https://www.npmjs.com/package/react-datepicker)
+- [React Router](https://reactrouter.com/) – Routing
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 1. **Clone the repo**
+```bash
+git clone https://github.com/your-username/fleetlink-frontend.git
+cd fleetlink-frontend
+````
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. **Install dependencies**
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. **Start the development server**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### 4. Open in browser
+
+Go to `http://localhost:5173`
+
+> Ensure the **FleetLink backend** is running at `http://localhost:5000`
+
+---
+
+## 🧩 Project Structure
+
+```
+src/
+├── api/                # Axios instance
+├── pages/              # AddVehicle, SearchAndBook
+├── components/         # Reusable components (optional)
+├── App.tsx             # App with routing
+└── main.tsx            # Vite entry point
+```
+
+---
+
+## ✅ Pages
+
+### `/` — Add Vehicle
+
+* Inputs: Name, Capacity (kg), Tyres
+* Sends `POST /api/vehicles`
+
+### `/search` — Search & Book
+
+* Inputs: Capacity, From/To Pincode, Start Time
+* Calls `GET /api/vehicles/available`
+* Shows available vehicles & booking duration
+* Books via `POST /api/bookings`
+
+---
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+
