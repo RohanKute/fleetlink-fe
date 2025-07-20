@@ -20,8 +20,8 @@ Built with **React**, **TypeScript**, **Vite**, and **TailwindCSS**.
 
 ### 1. **Clone the repo**
 ```bash
-git clone https://github.com/your-username/fleetlink-frontend.git
-cd fleetlink-frontend
+git clone https://github.com/RohanKute/fleetlink-fe.git
+cd fleetlink-fe
 ````
 
 ### 2. **Install dependencies**
